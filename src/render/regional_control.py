@@ -6,7 +6,7 @@
 #
 """区域控制渲染模块 - 按不同区域应用不同材质 LoRA."""
 
-import numpy as np
+# [FINAL_CLEAN] import numpy as np
 from PIL import Image
 
 from src.materials.material_library import MaterialLibrary

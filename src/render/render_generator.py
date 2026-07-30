@@ -8,7 +8,7 @@
 
 from typing import Any, Optional
 
-import numpy as np
+# [FINAL_CLEAN] import numpy as np
 from PIL import Image
 
 from src.utils.logging import get_logger

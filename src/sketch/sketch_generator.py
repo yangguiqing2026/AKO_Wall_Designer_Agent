@@ -139,7 +139,7 @@ class SketchGenerator:
         Returns:
             处理后的图像
         """
-        import numpy as np
+        # [FINAL_CLEAN] import numpy as np
         from PIL import ImageFilter, ImageOps
 
         # 转为灰度
