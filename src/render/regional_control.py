@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """区域控制渲染模块 - 按不同区域应用不同材质 LoRA."""
 
 import numpy as np

@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """型钢截面库模块."""
 
 from dataclasses import dataclass

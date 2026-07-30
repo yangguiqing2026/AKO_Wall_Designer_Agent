@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """Gradio Web 应用 — 逐句问询式交互设计向导.
 
 流程:
@@ -9,7 +15,7 @@
 from pathlib import Path
 from typing import Any
 
-import gradio as gr
+# [DEPRECATED_GUI] import gradio as gr
 
 from src.agents.step_orchestrator import DesignState, StepOrchestrator
 from src.utils.config import Config
@@ -55,8 +61,8 @@ class GradioApp:
         self.orchestrator = StepOrchestrator(config=self.config)
         self.total_questions = len(QUESTIONS)
 
-    def create_interface(self) -> gr.Blocks:
-        with gr.Blocks(title="AKO Wall Designer") as app:
+    # [DEPRECATED_GUI] def create_interface(self) -> gr.Blocks:
+        # [DEPRECATED_GUI] with gr.Blocks(title="AKO Wall Designer") as app:
             # 状态
             answers_state = gr.State({})
             q_index = gr.State(0)
@@ -70,38 +76,38 @@ class GradioApp:
                                      label="问答进度", interactive=False)
 
             # ===== 问答区 =====
-            bot_msg = gr.Markdown("### 📝 第 1 / 7 题\n\n请告诉我围墙的总长度（米）",
+            # [DEPRECATED_GUI] bot_msg = gr.Markdown("### 📝 第 1 / 7 题\n\n请告诉我围墙的总长度（米）",
                                   elem_classes=["chat-bubble", "bot-bubble"])
-            input_text = gr.Textbox(label="请输入", placeholder="例如: 50", visible=True)
+            # [DEPRECATED_GUI] input_text = gr.Textbox(label="请输入", placeholder="例如: 50", visible=True)
             input_choices = gr.Radio(label="请选择", choices=[], visible=False)
-            with gr.Row():
-                back_btn = gr.Button("← 上一题", visible=False, size="sm")
-                next_btn = gr.Button("确认 →", variant="primary")
+            # [DEPRECATED_GUI] with gr.Row():
+                # [DEPRECATED_GUI] back_btn = gr.Button("← 上一题", visible=False, size="sm")
+                # [DEPRECATED_GUI] next_btn = gr.Button("确认 →", variant="primary")
 
             # ===== 确认区 =====
             confirm_area = gr.Group(visible=False)
             with confirm_area:
-                gr.Markdown("### ✅ 参数确认")
-                confirm_summary = gr.Markdown("")
-                with gr.Row():
-                    edit_btn = gr.Button("✏️ 返回修改")
-                    confirm_btn = gr.Button("🚀 确认并开始生成", variant="primary", size="lg")
+                # [DEPRECATED_GUI] gr.Markdown("### ✅ 参数确认")
+                # [DEPRECATED_GUI] confirm_summary = gr.Markdown("")
+                # [DEPRECATED_GUI] with gr.Row():
+                    # [DEPRECATED_GUI] edit_btn = gr.Button("✏️ 返回修改")
+                    # [DEPRECATED_GUI] confirm_btn = gr.Button("🚀 确认并开始生成", variant="primary", size="lg")
 
             # ===== 结果区 =====
             result_area = gr.Group(visible=False)
             with result_area:
-                gen_status = gr.Textbox(label="生成状态", interactive=False)
-                with gr.Tabs():
-                    with gr.TabItem("📋 计算书"):
-                        report_view = gr.Markdown("")
-                    with gr.TabItem("📐 草图"):
+                # [DEPRECATED_GUI] gen_status = gr.Textbox(label="生成状态", interactive=False)
+                # [DEPRECATED_GUI] with gr.Tabs():
+                    # [DEPRECATED_GUI] with gr.TabItem("📋 计算书"):
+                        # [DEPRECATED_GUI] report_view = gr.Markdown("")
+                    # [DEPRECATED_GUI] with gr.TabItem("📐 草图"):
                         sketch_view = gr.Image(label="立面草图", type="pil")
-                    with gr.TabItem("🎨 效果图"):
+                    # [DEPRECATED_GUI] with gr.TabItem("🎨 效果图"):
                         render_view = gr.Image(label="效果图", type="pil")
-                    with gr.TabItem("📦 材料清单"):
+                    # [DEPRECATED_GUI] with gr.TabItem("📦 材料清单"):
                         material_view = gr.JSON(label="材料清单")
-                    with gr.TabItem("🔧 3D 模型"):
-                        stl_view = gr.Textbox(label="STL 模型", interactive=False)
+                    # [DEPRECATED_GUI] with gr.TabItem("🔧 3D 模型"):
+                        # [DEPRECATED_GUI] stl_view = gr.Textbox(label="STL 模型", interactive=False)
 
             # ===== 回调 =====
 
@@ -297,10 +303,10 @@ class GradioApp:
         return app
 
     def launch(self, server_name: str = "0.0.0.0", server_port: int = 7860, share: bool = False):
-        self.create_interface().launch(
+        # [DEPRECATED_GUI] self.create_interface().launch(
             server_name=server_name, server_port=server_port, share=share, css=CSS,
         )
 
 
-def create_interface(config: Config | None = None) -> gr.Blocks:
+# [DEPRECATED_GUI] def create_interface(config: Config | None = None) -> gr.Blocks:
     return GradioApp(config).create_interface()

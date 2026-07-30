@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """LangGraph 工作流编排模块."""
 
 from typing import Any

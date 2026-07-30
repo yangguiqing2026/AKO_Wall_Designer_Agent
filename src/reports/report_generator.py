@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """报告生成模块 - 计算书 + 材料清单."""
 
 from typing import Any

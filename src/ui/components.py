@@ -1,8 +1,14 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """Gradio UI 组件模块."""
 
 from typing import Any
 
-import gradio as gr
+# [DEPRECATED_GUI] import gradio as gr
 
 
 def build_input_panel() -> list[Any]:
@@ -11,20 +17,20 @@ def build_input_panel() -> list[Any]:
     Returns:
         Gradio 组件列表
     """
-    with gr.Column():
-        gr.Markdown("## 🏗️ 围墙设计智能体")
-        gr.Markdown("请输入您的围墙设计需求，AI 将自动完成参数解析、结构计算和效果图生成。")
+    # [DEPRECATED_GUI] with gr.Column():
+        # [DEPRECATED_GUI] gr.Markdown("## 🏗️ 围墙设计智能体")
+        # [DEPRECATED_GUI] gr.Markdown("请输入您的围墙设计需求，AI 将自动完成参数解析、结构计算和效果图生成。")
 
         # 自然语言输入
-        description = gr.Textbox(
+        # [DEPRECATED_GUI] description = gr.Textbox(
             label="设计需求描述",
             placeholder="例如: 设计一段50米长的清水混凝土围墙，高度2.4米，柱间距3.6米，用于深圳地区...",
             lines=5,
             max_lines=10,
         )
 
-        with gr.Row():
-            with gr.Column(scale=1):
+        # [DEPRECATED_GUI] with gr.Row():
+            # [DEPRECATED_GUI] with gr.Column(scale=1):
                 # 快速参数调整
                 wall_length = gr.Number(
                     label="围墙总长度 (mm)", value=50000, minimum=1000, precision=0
@@ -36,13 +42,13 @@ def build_input_panel() -> list[Any]:
                     label="扶壁柱间距 (mm)", value=3600, minimum=1000, precision=0
                 )
 
-            with gr.Column(scale=1):
-                column_material = gr.Dropdown(
+            # [DEPRECATED_GUI] with gr.Column(scale=1):
+                # [DEPRECATED_GUI] column_material = gr.Dropdown(
                     label="扶壁柱材质",
                     choices=["concrete", "steel", "steel_corten"],
                     value="concrete",
                 )
-                surface_finish = gr.Dropdown(
+                # [DEPRECATED_GUI] surface_finish = gr.Dropdown(
                     label="表面饰面",
                     choices=["fair-faced", "wood-grain", "rustic"],
                     value="fair-faced",
@@ -55,8 +61,8 @@ def build_input_panel() -> list[Any]:
                     step=1,
                 )
 
-            with gr.Column(scale=1):
-                terrain_category = gr.Dropdown(
+            # [DEPRECATED_GUI] with gr.Column(scale=1):
+                # [DEPRECATED_GUI] terrain_category = gr.Dropdown(
                     label="地面粗糙度",
                     choices=["A", "B", "C", "D"],
                     value="C",
@@ -70,7 +76,7 @@ def build_input_panel() -> list[Any]:
                     label="标准板宽 (mm)", value=600, minimum=300, maximum=1200, precision=0
                 )
 
-        submit_btn = gr.Button("🚀 开始设计", variant="primary", size="lg")
+        # [DEPRECATED_GUI] submit_btn = gr.Button("🚀 开始设计", variant="primary", size="lg")
 
     return [
         description,
@@ -93,37 +99,37 @@ def build_output_panel() -> list[Any]:
     Returns:
         Gradio 组件列表
     """
-    with gr.Column():
-        gr.Markdown("## 📊 设计结果")
+    # [DEPRECATED_GUI] with gr.Column():
+        # [DEPRECATED_GUI] gr.Markdown("## 📊 设计结果")
 
-        status = gr.Textbox(label="处理状态", value="等待输入...", interactive=False)
+        # [DEPRECATED_GUI] status = gr.Textbox(label="处理状态", value="等待输入...", interactive=False)
 
-        with gr.Tabs():
-            with gr.TabItem("📐 立面草图"):
+        # [DEPRECATED_GUI] with gr.Tabs():
+            # [DEPRECATED_GUI] with gr.TabItem("📐 立面草图"):
                 sketch_image = gr.Image(label="立面草图", type="pil")
 
-            with gr.TabItem("🎨 彩色效果图"):
+            # [DEPRECATED_GUI] with gr.TabItem("🎨 彩色效果图"):
                 render_image = gr.Image(label="效果图", type="pil")
 
-            with gr.TabItem("📋 结构计算书"):
-                report_md = gr.Markdown("计算书将在设计完成后显示...")
+            # [DEPRECATED_GUI] with gr.TabItem("📋 结构计算书"):
+                # [DEPRECATED_GUI] report_md = gr.Markdown("计算书将在设计完成后显示...")
 
-            with gr.TabItem("📦 材料清单"):
+            # [DEPRECATED_GUI] with gr.TabItem("📦 材料清单"):
                 material_json = gr.JSON(label="材料清单", value=None)
 
-            with gr.TabItem("📄 参数确认"):
+            # [DEPRECATED_GUI] with gr.TabItem("📄 参数确认"):
                 params_json = gr.JSON(label="解析参数", value=None)
 
     return [status, sketch_image, render_image, report_md, material_json, params_json]
 
 
-def build_simple_ui() -> gr.Blocks:
+# [DEPRECATED_GUI] def build_simple_ui() -> gr.Blocks:
     """构建完整的 Gradio 界面.
 
     Returns:
         Gradio Blocks 界面
     """
-    with gr.Blocks(
+    # [DEPRECATED_GUI] with gr.Blocks(
         title="AKO Wall Designer Agent",
         theme=None,
         css="""
@@ -156,7 +162,7 @@ def build_simple_ui() -> gr.Blocks:
 
         submit_btn.click(
             fn=update_status,
-            inputs=[gr.Textbox(value="正在处理...", visible=False)],
+            # [DEPRECATED_GUI] inputs=[gr.Textbox(value="正在处理...", visible=False)],
             outputs=[status],
         )
 

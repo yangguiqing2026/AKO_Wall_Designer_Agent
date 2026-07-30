@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """材质库模块 - 管理建筑材质定义和LoRA映射."""
 
 from dataclasses import dataclass

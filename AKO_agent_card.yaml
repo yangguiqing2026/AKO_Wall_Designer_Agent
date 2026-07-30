@@ -1,136 +1,135 @@
-# ============================================================
-# AKO_agent_card.yaml — Agent身份证（唯一身份标识）
-# ============================================================
-
-# --- 基础身份 ---
-agent_id: "AKO_wall_designer_agent"
-name: "围墙设计Agent"
-version: "1.0.0"
-owner: "AKO_studio"
-status: "production"
-
-# --- 能力定义 ---
+agent_id: AKO_wall_designer_agent
+name: 围墙设计Agent
+version: 1.0.0
+owner: AKO_studio
+status: production
 capabilities:
-  - id: "cap_param_analyze"
-    name: "参数解析与模数计算"
-    description: "自然语言输入自动解析为墙板参数，执行模数匹配计算"
-    input:
-      - name: "nlp_request"
-        type: "string"
-        required: true
-        description: "自然语言描述的设计需求"
-    output:
-      - name: "param_result"
-        type: "json"
-        description: "解析后的墙板参数和模数方案"
-    priority: "P0"
-  - id: "cap_sketch_gen"
-    name: "草图与效果图生成"
-    description: "基于参数自动生成围墙设计草图和效果图"
-    input:
-      - name: "wall_params"
-        type: "json"
-        required: true
-        description: "墙板参数"
-    output:
-      - name: "sketch_images"
-        type: "list"
-        description: "生成的草图/效果图路径"
-    priority: "P0"
-  - id: "cap_design_report"
-    name: "设计报告生成"
-    description: "生成包含技术参数、产品清单、施工说明的完整设计报告"
-    input:
-      - name: "design_data"
-        type: "json"
-        required: true
-        description: "全部设计数据"
-    output:
-      - name: "report_file"
-        type: "file"
-        description: "设计报告PDF"
-        format: "pdf"
-    priority: "P1"
-
-# --- 编码架构 ---
-architecture:
-  language: "Python"
-  framework: "FastAPI"
-  entry_point: "app.py"
-  config_files:
-    - "config.yaml"
-    - "secrets.env"
-  dependencies:
-    - "requirements.txt"
-    - "AKO_agent_sdk_v2.py"
-  git_repo: ""
-
-# --- 运行态信息 ---
-runtime:
-  endpoint: "http://localhost:5010"
-  heartbeat_interval: 60
-  last_heartbeat: ""
-  status: ""
-  pid: 0
-  start_time: ""
-
-# --- 组织架构归属 ---
-org:
-  department: "商务中心"
-  product_line: "AKO_design_system"
-  reports_to: "AKO_hub"
-  team: "设计组"
-
-# --- 依赖关系 ---
-dependencies:
-  - agent_id: "AKO_hub"
-    type: "reports_to"
+- id: cap_param_analyze
+  name: 参数解析与模数计算
+  description: 自然语言输入自动解析为墙板参数，执行模数匹配计算
+  input:
+  - name: nlp_request
+    type: string
     required: true
-    description: "任务分发上级"
-  - agent_id: "AKO_quote_agent"
-    type: "calls"
-    required: false
-    description: "联动报价"
-
-# --- 文档资产 ---
+    description: 自然语言描述的设计需求
+  output:
+  - name: param_result
+    type: json
+    description: 解析后的墙板参数和模数方案
+  priority: P0
+- id: cap_sketch_gen
+  name: 草图与效果图生成
+  description: 基于参数自动生成围墙设计草图和效果图
+  input:
+  - name: wall_params
+    type: json
+    required: true
+    description: 墙板参数
+  output:
+  - name: sketch_images
+    type: list
+    description: 生成的草图/效果图路径
+  priority: P0
+- id: cap_design_report
+  name: 设计报告生成
+  description: 生成包含技术参数、产品清单、施工说明的完整设计报告
+  input:
+  - name: design_data
+    type: json
+    required: true
+    description: 全部设计数据
+  output:
+  - name: report_file
+    type: file
+    description: 设计报告PDF
+    format: pdf
+  priority: P1
+architecture:
+  language: Python
+  framework: FastAPI
+  entry_point: app.py
+  config_files:
+  - config.yaml
+  - secrets.env
+  dependencies:
+  - requirements.txt
+  - AKO_agent_sdk_v2.py
+  git_repo: ''
+runtime:
+  endpoint: http://localhost:5010
+  heartbeat_interval: 60
+  last_heartbeat: ''
+  status: ''
+  pid: 0
+  start_time: ''
+org:
+  department: 商务中心
+  product_line: AKO_design_system
+  reports_to: AKO_hub
+  team: 设计组
+dependencies:
+- agent_id: AKO_hub
+  type: reports_to
+  required: true
+  description: 任务分发上级
+- agent_id: AKO_quote_agent
+  type: calls
+  required: false
+  description: 联动报价
 metadata:
-  created: "2026-07-25"
-  updated: "2026-07-29"
-  tags: ["技术/AI-Agent", "技术/建筑", "技术/软件-设计"]
+  created: '2026-07-25'
+  updated: '2026-07-29'
+  tags:
+  - 技术/AI-Agent
+  - 技术/建筑
+  - 技术/软件-设计
   documents:
     whitepaper:
-      filename: "AKO_wall_designer_agent_whitepaper_v1.0.md"
-      path: "./AKO_wall_designer_agent_whitepaper_v1.0.md"
-      version: "1.0.0"
-      status: "production"
-      last_verified: ""
-
-# ============================================================
-# Health探测（强制）
-# ============================================================
+      filename: AKO_wall_designer_agent_whitepaper_v1.0.md
+      path: ./AKO_wall_designer_agent_whitepaper_v1.0.md
+      version: 1.0.0
+      status: production
+      last_verified: ''
 health:
   enabled: true
   probe_interval: 60
   business_probes:
-    - name: "核心功能自检"
-      enabled: true
-      timeout: 30
-    - name: "输入输出通道"
-      enabled: true
-      timeout: 10
-    - name: "依赖服务可用"
-      enabled: true
-      timeout: 5
+  - name: 核心功能自检
+    enabled: true
+    timeout: 30
+  - name: 输入输出通道
+    enabled: true
+    timeout: 10
+  - name: 依赖服务可用
+    enabled: true
+    timeout: 5
   system_probes:
-    - name: "CPU使用率"
-      enabled: true
-      threshold: 80
-    - name: "内存使用率"
-      enabled: true
-      threshold: 80
-    - name: "磁盘空间"
-      enabled: true
-      threshold: 80
-    - name: "网络连通"
-      enabled: true
-      timeout: 5
+  - name: CPU使用率
+    enabled: true
+    threshold: 80
+  - name: 内存使用率
+    enabled: true
+    threshold: 80
+  - name: 磁盘空间
+    enabled: true
+    threshold: 80
+  - name: 网络连通
+    enabled: true
+    timeout: 5
+author: AKO_studio
+tags:
+- design
+- architecture
+- wall
+- construction
+created_date: '2026-07-30'
+description: Ako Wall Designer Agent Agent for AKO fleet automation.
+interfaces:
+  input: config.yaml / CLI parameters
+  output: Result files / logs
+health_probe:
+  endpoint: /health
+  expected_response: ok
+registry:
+  registry_agent: AKO_registry_agent
+  registered: false

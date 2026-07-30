@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """围墙几何生成模块 - 使用 CadQuery 生成精确3D模型."""
 
 from typing import Any

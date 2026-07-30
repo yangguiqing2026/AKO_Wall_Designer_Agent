@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """分步编排器 - 支持逐层交互式设计."""
 
 from dataclasses import dataclass, field

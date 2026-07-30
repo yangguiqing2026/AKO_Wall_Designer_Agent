@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """草图生成模块 - ControlNet + SD 手绘风格线稿生成."""
 
 from typing import Optional

@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """效果图生成模块 - SDXL + ControlNet + LoRA 逼真渲染."""
 
 from typing import Any, Optional

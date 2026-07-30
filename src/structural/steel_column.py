@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """钢柱设计模块 - 依据 GB 50017-2017."""
 
 from dataclasses import dataclass

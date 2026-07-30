@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """几何导出工具模块 - 2D线稿/深度图渲染."""
 
 from typing import Any

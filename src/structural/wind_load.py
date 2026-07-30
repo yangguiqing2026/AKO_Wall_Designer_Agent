@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """风荷载计算模块 - 依据 GB 50009-2012."""
 
 from typing import Any

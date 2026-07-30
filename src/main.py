@@ -1,3 +1,9 @@
+# ============================================
+# Author: AKO_studio
+# Agent: AKO_wall_designer_agent
+# Generated: 2026-07-30
+# ============================================
+#
 """AKO_Wall_Designer_Agent 主入口 - 围墙设计智能体."""
 
 import argparse
@@ -77,7 +83,7 @@ def run_cli(config: Config) -> None:
             print(f"\n❌ 处理失败: {e}")
 
 
-def run_gradio(config: Config) -> None:
+# [DEPRECATED_GUI] def run_gradio(config: Config) -> None:
     """以 Gradio Web 模式运行.
 
     Args:
@@ -89,7 +95,7 @@ def run_gradio(config: Config) -> None:
     from src.ui.gradio_app import GradioApp
 
     app = GradioApp(config)
-    app.launch(
+    # [DEPRECATED_GUI] app.launch(
         server_name=config.host,
         server_port=config.port,
     )
@@ -160,7 +166,7 @@ def main() -> None:
     if args.cli:
         run_cli(config)
     else:
-        run_gradio(config)
+        # [DEPRECATED_GUI] run_gradio(config)
 
 
 if __name__ == "__main__":

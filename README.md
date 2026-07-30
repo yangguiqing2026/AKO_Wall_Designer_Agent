@@ -82,3 +82,6 @@ AKO_Wall_Designer_Agent/
 ## License
 
 Proprietary - AKO Design Lab
+---
+> 作者：AKO_studio
+> 日期：2026-07-30
