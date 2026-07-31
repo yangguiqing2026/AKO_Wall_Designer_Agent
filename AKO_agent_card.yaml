@@ -117,13 +117,17 @@ health:
     enabled: true
     timeout: 5
 author: AKO_studio
+category: ['design', 'engineering']
+interface_type: cli
+category: ['design', 'engineering']
+interface_type: cli
 tags:
 - design
 - architecture
 - wall
 - construction
 created_date: '2026-07-30'
-description: Ako Wall Designer Agent Agent for AKO fleet automation.
+description: AKO Wall Designer Agent for AKO fleet automation.
 interfaces:
   input: config.yaml / CLI parameters
   output: Result files / logs
